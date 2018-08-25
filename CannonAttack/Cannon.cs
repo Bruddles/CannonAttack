@@ -9,9 +9,11 @@ namespace CannonAttack
         // Speed of Light in a Vacuum. Units cm/sec 
         public const double LIGHTSPEED = 2.9979e10;
         public const string ID = "HUMAN";
+        public const double MAX_DISTANCE = 20000;
 
         private double _angle;
         private double _speed;
+        private double _targetDistance;
 
         public double Angle
         {
@@ -29,13 +31,31 @@ namespace CannonAttack
             get => _speed;
             set
             {
-                if (value <= 0) throw new ArgumentOutOfRangeException("Speed cannot be less than or equal to 0m/s.");
-                if (value > LIGHTSPEED) throw new ArgumentOutOfRangeException("Speed cannot be greater than the speed of light.");
+                if (value <= 0)
+                    throw new ArgumentOutOfRangeException("Speed cannot be less than or equal to 0m/s.");
+                if (value > LIGHTSPEED)
+                    throw new ArgumentOutOfRangeException("Speed cannot be greater than the speed of light.");
                 _speed = value;
             }
         }
 
-        public Cannon() { }
+        public double TargetDistance
+        {
+            get => _targetDistance;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException("Distance cannot be les than 0m.");
+                if (value > MAX_DISTANCE)
+                    throw new ArgumentOutOfRangeException("Distance cannot be greater than 20000m.");
+                _targetDistance = value;
+            }
+        }
+
+        public Cannon()
+        {
+            TargetDistance = new Random().NextDouble() * MAX_DISTANCE;
+        }
 
     }
 }
