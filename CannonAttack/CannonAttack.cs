@@ -2,7 +2,7 @@
 
 namespace CannonAttack
 {
-    class Program
+    class CannonAttack
     {
         static void Main(string[] args)
         {
