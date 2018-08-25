@@ -9,9 +9,11 @@ namespace CannonAttack.Tests
     public class Tests
     {
         [Test]
-        public void Given_Anything_When_Always_Then_IDShouldEqualHuman()
+        public void Given_ACannon_When_InitialisedAndNotUpdated_Then_IDShouldEqualDefault()
         {
-            Assert.AreEqual("HUMAN", Cannon.ID);
+            var cannon = new Cannon();
+
+            Assert.AreEqual(Cannon.DEFAULT_ID, cannon.Id);
         }
 
         [Test]

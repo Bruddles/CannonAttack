@@ -8,7 +8,7 @@ namespace CannonAttack
     {
         // Speed of Light in a Vacuum. Units m/sec 
         public const double LIGHTSPEED = 2.9979e8;
-        public const string ID = "HUMAN";
+        public const string DEFAULT_ID = "HUMAN";
         public const double MIN_ANGLE = 1;
         public const double MAX_ANGLE = 89;
         public const double MAX_DISTANCE = 20000;
@@ -16,6 +16,8 @@ namespace CannonAttack
         private double _angle;
         private double _speed;
         private double _targetDistance;
+
+        public string Id { get; set; }
 
         public double Angle
         {
@@ -42,7 +44,7 @@ namespace CannonAttack
                 _speed = value;
             }
         }
-
+        
         public double TargetDistance
         {
             get => _targetDistance;
@@ -58,6 +60,7 @@ namespace CannonAttack
 
         public Cannon()
         {
+            Id = DEFAULT_ID;
             TargetDistance = new Random().NextDouble() * MAX_DISTANCE;
         }
 
