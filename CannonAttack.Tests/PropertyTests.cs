@@ -6,7 +6,7 @@ using NUnit.Framework.Constraints;
 namespace CannonAttack.Tests
 {
     [TestFixture]
-    public class Tests
+    public class PropertyTests
     {
         [Test]
         public void Given_ACannon_When_InitialisedAndNotUpdated_Then_IDShouldEqualDefault()

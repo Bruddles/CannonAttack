@@ -12,6 +12,7 @@ namespace CannonAttack
         public const double MIN_ANGLE = 1;
         public const double MAX_ANGLE = 89;
         public const double MAX_DISTANCE = 20000;
+        public const double G = 9.81;
 
         private double _angle;
         private double _speed;
@@ -72,6 +73,27 @@ namespace CannonAttack
                 _instance = new Cannon();
 
             return _instance;
+        }
+
+        public bool Shoot()
+        {
+            var shotDistance = CalculateShotDistance();
+
+            if (shotDistance >= TargetDistance + 50 || shotDistance <= TargetDistance - 50)
+                return false;
+
+            return true;
+        }
+
+        private double CalculateShotDistance()
+        {
+            var angleRadians = ConvertToRadians(Angle);
+            return (2 * Math.Pow(Speed, 2) * Math.Sin(angleRadians) * Math.Cos(angleRadians)) / G;
+        }
+
+        private double ConvertToRadians(double degrees)
+        {
+            return degrees * (Math.PI / 180);
         }
 
     }
