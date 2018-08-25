@@ -17,9 +17,11 @@ namespace CannonAttack.Tests
 
             var attempt = new CannonShotAttempt(45, 1);
 
-            var hit = cannon.Shoot(attempt);
+            var result = cannon.Shoot(attempt);
 
-            Assert.IsFalse(hit);
+            Assert.IsFalse(result.Hit);
+            Assert.AreEqual(attempt, result.Attempt);
+            Assert.AreEqual(cannon.TargetDistance, result.TargetDistance);
         }
 
         [Test]
@@ -31,9 +33,11 @@ namespace CannonAttack.Tests
 
             var attempt = new CannonShotAttempt(45, 100);
 
-            var hit = cannon.Shoot(attempt);
+            var result = cannon.Shoot(attempt);
 
-            Assert.IsTrue(hit);
+            Assert.IsTrue(result.Hit);
+            Assert.AreEqual(attempt, result.Attempt);
+            Assert.AreEqual(cannon.TargetDistance, result.TargetDistance);
         }
     }
 }

@@ -8,7 +8,6 @@ namespace CannonAttack
     {
         public const string DEFAULT_ID = "HUMAN";
         public const double MAX_DISTANCE = 20000;
-        public const double G = 9.81;
         
         private double _targetDistance;
 
@@ -43,25 +42,11 @@ namespace CannonAttack
             return _instance;
         }
 
-        public bool Shoot(CannonShotAttempt attempt)
+        public CannonShotResult Shoot(CannonShotAttempt attempt)
         {
-            var shotDistance = CalculateShotDistance(attempt);
+            var result = new CannonShotResult(attempt, TargetDistance);
 
-            if (shotDistance >= TargetDistance + 50 || shotDistance <= TargetDistance - 50)
-                return false;
-
-            return true;
-        }
-
-        private double CalculateShotDistance(CannonShotAttempt attempt)
-        {
-            var angleRadians = ConvertToRadians(attempt.Angle);
-            return (2 * Math.Pow(attempt.Speed, 2) * Math.Sin(angleRadians) * Math.Cos(angleRadians)) / G;
-        }
-
-        private double ConvertToRadians(double degrees)
-        {
-            return degrees * (Math.PI / 180);
+            return result;
         }
 
     }

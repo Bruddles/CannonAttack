@@ -19,13 +19,12 @@ namespace CannonAttack.Tests
             Assert.AreEqual(angle, attempt.Angle);
         }
 
-
         [Test]
         public void Given_AnAngleLessThan1Degree_When_SettingTheAngle_Then_ArgumentOutOfRangeExceptionShouldBeThrown()
         {
             var angle = 0;
             var speed = 100;
-            
+
             void testDelegate() => new CannonShotAttempt(angle, speed);
 
             Assert.Throws<ArgumentOutOfRangeException>(testDelegate);
