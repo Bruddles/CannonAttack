@@ -17,6 +17,8 @@ namespace CannonAttack
         private double _speed;
         private double _targetDistance;
 
+        private static Cannon _instance;
+
         public string Id { get; set; }
 
         public double Angle
@@ -44,7 +46,7 @@ namespace CannonAttack
                 _speed = value;
             }
         }
-        
+
         public double TargetDistance
         {
             get => _targetDistance;
@@ -58,10 +60,18 @@ namespace CannonAttack
             }
         }
 
-        public Cannon()
+        private Cannon()
         {
             Id = DEFAULT_ID;
             TargetDistance = new Random().NextDouble() * MAX_DISTANCE;
+        }
+
+        public static Cannon GetInstance()
+        {
+            if (_instance == null)
+                _instance = new Cannon();
+
+            return _instance;
         }
 
     }
