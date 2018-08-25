@@ -1,0 +1,40 @@
+﻿The CannonAttack Requirements/Specs:
+
+The following is a combination of Requirements and Specifications that will give us some guide in terms of the application we are trying to build:
+Windows Console Application;
+Player identified by an id, default is set to a constant "Human";
+Single player only, no multi-play yet;
+Allow player to set Angle and Speed of the Cannon Ball to Shoot at a Target;
+Target Distance is simply the distance of the Cannon to Target, and is created randomly by default but can be overridden;
+Angle and Speed needs to be validated (specifically not greater than 90 degrees and Speed not greater than speed of light);
+Max distance for target is 20000 meters;
+Base the algorithm for the calculation of the cannons trajectory upon the following C# code (distance and height is meters and velocity is meters per second):
+distance = velocity * Math.Cos(angleInRadians) * time;
+height = (velocity * Math.Sin(angleInRadians) * time) - (GRAVITY * Math.Pow(time, 2)) / 2;
+A hit occurs if the cannon is within 50m of the target;
+Display number of shots for a hit
+Game text will be similar to following: 
+Welcome to Cannon Attack
+Target Distance:12621m
+Please Enter Angle:40
+Please Enter Speed:350
+Missed cannonball landed at 12333m
+Please Enter Angle:45
+Please Enter Speed:350
+Hit - 2 Shots
+Would you like to play again (Y/N)
+Y
+Target Distance:2078m
+Please Enter Angle:45
+Please Enter Speed:100
+Missed cannonball landed at 1060m
+Please Enter Angle:45
+Please Enter Speed:170
+Missed cannonball landed at 3005m
+Please Enter Angle:45
+Please Enter Speed:140
+Hit - 3 shots 
+Would you like to play again (Y/N)
+N
+Thanks for playing CannonAttack
+OK so now we are ready to code, let's go...
