@@ -6,9 +6,11 @@ namespace CannonAttack
 {
     public class Cannon
     {
-        // Speed of Light in a Vacuum. Units cm/sec 
-        public const double LIGHTSPEED = 2.9979e10;
+        // Speed of Light in a Vacuum. Units m/sec 
+        public const double LIGHTSPEED = 2.9979e8;
         public const string ID = "HUMAN";
+        public const double MIN_ANGLE = 1;
+        public const double MAX_ANGLE = 89;
         public const double MAX_DISTANCE = 20000;
 
         private double _angle;
@@ -20,8 +22,10 @@ namespace CannonAttack
             get => _angle;
             set
             {
-                if (value < 1) throw new ArgumentOutOfRangeException("Angle cannot be less than 1 degree.");
-                if (value > 89) throw new ArgumentOutOfRangeException("Angle cannot be 90 degrees or larger.");
+                if (value < MIN_ANGLE)
+                    throw new ArgumentOutOfRangeException("Angle cannot be less than 1 degree.");
+                if (value > MAX_ANGLE)
+                    throw new ArgumentOutOfRangeException("Angle cannot be 90 degrees or larger.");
                 _angle = value;
             }
         }
