@@ -14,10 +14,10 @@ namespace CannonAttack.Tests
             var cannon = Cannon.GetInstance();
 
             cannon.TargetDistance = 1000;
-            cannon.Angle = 45;
-            cannon.Speed = 1;
 
-            var hit = cannon.Shoot();
+            var attempt = new CannonShotAttempt(45, 1);
+
+            var hit = cannon.Shoot(attempt);
 
             Assert.IsFalse(hit);
         }
@@ -28,10 +28,10 @@ namespace CannonAttack.Tests
             var cannon = Cannon.GetInstance();
 
             cannon.TargetDistance = 1000;
-            cannon.Angle = 45;
-            cannon.Speed = 100;
 
-            var hit = cannon.Shoot();
+            var attempt = new CannonShotAttempt(45, 100);
+
+            var hit = cannon.Shoot(attempt);
 
             Assert.IsTrue(hit);
         }
