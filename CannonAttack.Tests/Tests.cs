@@ -53,11 +53,33 @@ namespace CannonAttack.Tests
         public void Given_ASpeed_When_SettingTheSpeed_Then_SpeedShouldBeSet()
         {
             var cannon = new Cannon();
-            var speed = 0;
+            var speed = 100;
 
             cannon.Speed = speed;
 
             Assert.AreEqual(speed, cannon.Speed);
+        }
+
+        [Test]
+        public void Given_ASpeedLessThanOrEqualTo0_When_SettingTheSpeed_Then_ArgumentOutOfRangeExceptionShouldBeThrown()
+        {
+            var cannon = new Cannon();
+            var speed = 0;
+
+            void testDelegate() => cannon.Speed = speed;
+
+            Assert.Throws<ArgumentOutOfRangeException>(testDelegate);
+        }
+
+        [Test]
+        public void Given_ASpeedGreaterThanC_When_SettingTheSpeed_Then_ArgumentOutOfRangeExceptionShouldBeThrown()
+        {
+            var cannon = new Cannon();
+            var speed = 2.99791e10;
+
+            void testDelegate() => cannon.Speed = speed;
+
+            Assert.Throws<ArgumentOutOfRangeException>(testDelegate);
         }
     }
 }
