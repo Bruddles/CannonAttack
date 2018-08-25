@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CannonAttack", "CannonAttack\CannonAttack.csproj", "{A2F8FF00-EA3A-4515-91EE-D9E26CCE6876}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CannonAttack.Tests", "CannonAttack.Tests\CannonAttack.Tests.csproj", "{0A371CBE-643D-49E9-8D42-2F7A04E78445}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A2F8FF00-EA3A-4515-91EE-D9E26CCE6876}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2F8FF00-EA3A-4515-91EE-D9E26CCE6876}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2F8FF00-EA3A-4515-91EE-D9E26CCE6876}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A371CBE-643D-49E9-8D42-2F7A04E78445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A371CBE-643D-49E9-8D42-2F7A04E78445}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A371CBE-643D-49E9-8D42-2F7A04E78445}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A371CBE-643D-49E9-8D42-2F7A04E78445}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
