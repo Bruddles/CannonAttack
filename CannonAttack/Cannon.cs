@@ -28,10 +28,13 @@ namespace CannonAttack
             }
         }
 
+        public List<CannonShotResult> PreviousShotResults;
+
         private Cannon()
         {
             Id = DEFAULT_ID;
-            TargetDistance = new Random().NextDouble() * MAX_DISTANCE;
+            TargetDistance = CalculateTargetDistance();
+            PreviousShotResults = new List<CannonShotResult>();
         }
 
         public static Cannon GetInstance()
@@ -46,8 +49,18 @@ namespace CannonAttack
         {
             var result = new CannonShotResult(attempt, TargetDistance);
 
+            PreviousShotResults.Add(result);
+
             return result;
         }
 
+        public void Reset() {
+            TargetDistance = CalculateTargetDistance();
+            PreviousShotResults = new List<CannonShotResult>();
+        }
+
+        private double CalculateTargetDistance() {
+            return new Random().NextDouble() * MAX_DISTANCE;
+        }
     }
 }
