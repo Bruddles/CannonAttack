@@ -21,7 +21,7 @@ namespace CannonAttack
             set
             {
                 if (value < 0)
-                    throw new ArgumentOutOfRangeException("Distance cannot be les than 0m.");
+                    throw new ArgumentOutOfRangeException("Distance cannot be less than 0m.");
                 if (value > MAX_DISTANCE)
                     throw new ArgumentOutOfRangeException("Distance cannot be greater than 20000m.");
                 _targetDistance = value;
